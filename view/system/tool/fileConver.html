@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../component/pear/css/pear.css"/>
+    <style>
+        h1{
+            margin-top: 200px;
+            color: #5FB878;
+        }
+        .layui-card-body{
+            text-align: center;height: 500px;
+        }
+    </style>
+</head>
+<body class="pear-container">
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-inline">
+                    <input type="file" name="file" placeholder="选择文件" class="layui-input">
+                </div>
+                <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="user-query" onclick="imgToword()">
+                    <i class="layui-icon layui-icon-search"></i>
+                    转换
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../../../component/layui/layui.js"></script>
+<script src="../../../component/pear/pear.js"></script>
+<script src="../../../component/pear/js/jquery-3.6.0.min.js"></script>
+<script>
+    layui.use(['form', 'jquery'], function() {
+        let form = layui.form;
+        let $ = layui.jquery;
+
+        form.on('submit(user-save)', function(data) {
+        });
+    })
+    function imgToword(){
+        let path = "http://localhost:8082/rdjTool";
+        $.ajax({
+            url:path +'/tool/test',
+            data: {ss:"11111111111"},
+            dataType: 'json',
+            contentType: 'application/json',
+            type: 'post',
+            success: function(result) {
+                console.log(result);
+            }
+        })
+        return false;
+    }
+
+</script>
+</html>
